@@ -6,13 +6,11 @@ import shortUrl from './routes/shortUrl.js';
 const app = express();
 dotenv.config();
 connectDb();
-const port = 5000;
-app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true,
-}));
+const port = process.env.PORT;
+app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
 app.use('/api', shortUrl);
 app.listen(port, () => {
     console.log(`Server is running on port ${port}`);

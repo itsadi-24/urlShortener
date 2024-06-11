@@ -26,9 +26,9 @@ export default function Input({
       size={40}
       placeholder={placeholder}
       value={value}
-      onChange={(e) => {
-        setValue(e.target.value);
-      }}
+      onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        setValue(e.target.value)
+      }
       aria-label={placeholder}
     />
   );
